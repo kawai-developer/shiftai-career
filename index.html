@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFT AI | AIキャリア戦略講座</title>
+    <meta name="description" content="AI時代で10年後も勝ち続けるビジネスパーソンになるには。SHIFT AI AIキャリア戦略講座。">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS (CDN for standalone file) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            base: "#a51e6d", // [C40 M100 Y35 K0]
+                            light1: "#ae357c",
+                            light2: "#b74b8a",
+                            light3: "#c06299",
+                            light4: "#c978a7",
+                            light5: "#d28fb6",
+                            light6: "#dba5c5",
+                            light7: "#e4bcd3",
+                            light8: "#edd2e2",
+                            pale: "#f6e9f0",
+                        },
+                        black: {
+                            base: "#333333",
+                            light1: "#474747",
+                            light2: "#5c5c5c",
+                            light3: "#707070",
+                            light4: "#858585",
+                            light5: "#999999",
+                            light6: "#adadad",
+                            light7: "#c2c2c2",
+                            light8: "#d6d6d6",
+                            pale: "#ebebeb",
+                        },
+                        sub: {
+                            base: "#039578",
+                            light1: "#1ca086",
+                            light2: "#35aa93",
+                            light3: "#4fb5a1",
+                            light4: "#68bfae",
+                            light5: "#81cabc",
+                            light6: "#9ad5c9",
+                            light7: "#b3dfd7",
+                            light8: "#cdeae4",
+                            pale: "#e6f4f2",
+                        }
+                    },
+                    backgroundImage: {
+                        'gradient-logo': 'linear-gradient(135deg, #e6033d 0%, #673ba0 100%)',
+                        'gradient-brand-a': 'linear-gradient(135deg, #ff5757 0%, #8c52ff 100%)',
+                        'gradient-brand-b': 'linear-gradient(135deg, #c06299 0%, #a51e6d 100%)',
+                        'gradient-sub': 'linear-gradient(135deg, #32bed2 0%, #039578 100%)',
+                    },
+                    fontFamily: {
+                        sans: ['"Avenir Next Arabic"', '"Noto Sans JP"', 'sans-serif'],
+                    },
+                    maxWidth: {
+                        'mobile': '480px', // width:375px design centered
+                    },
+                    boxShadow: {
+                        'card': '0 10px 30px -10px rgba(0, 0, 0, 0.1)',
+                        'glow': '0 0 20px rgba(165, 30, 109, 0.4)',
+                    },
+                    fontSize: {
+                        'body': '16px',
+                        'note': '12px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: "Avenir Next Arabic", "Noto Sans JP", sans-serif;
+            background-color: #f6e9f0;
+            /* brand-pale */
+            color: #333333;
+            /* black-base */
+            -webkit-font-smoothing: antialiased;
+            font-size: 16px;
+            /* 本文サイズ指定 */
+            line-height: 1.6;
+        }
+
+        /* Utility for mobile centering */
+        .mobile-container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Note Class Utility */
+        .text-note {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        /* Fade In Animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ebebeb;
+            /* black-pale */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #adadad;
+            /* black-light6 */
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #858585;
+            /* black-light4 */
+        }
+
+        /* Gradient Text */
+        .text-gradient-logo {
+            background: linear-gradient(135deg, #e6033d 0%, #673ba0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-brand-a {
+            background: linear-gradient(135deg, #ff5757 0%, #8c52ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* High Contrast Typography */
+        h1,
+        h2 {
+            letter-spacing: -0.05em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mobile-container">
+
+        <!-- Header -->
+        <header
+            class="fixed top-0 w-full max-w-[480px] z-50 bg-white/90 backdrop-blur-md border-b border-black-pale flex justify-between items-center px-5 py-3">
+            <div class="font-bold text-xl tracking-tighter text-gradient-logo">SHIFT AI</div>
+            <a href="#reservation"
+                class="bg-gradient-brand-b text-white text-note font-bold py-2 px-4 rounded-full shadow-lg hover:opacity-90 transition transform hover:scale-105">
+                セミナー予約
+            </a>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="relative h-[700px] overflow-hidden bg-black-base text-white">
+            <!-- Background Gradient -->
+            <div class="absolute inset-0 z-0 bg-gradient-to-br from-black-base via-brand-base/20 to-black-base"></div>
+
+            <!-- Content Container -->
+            <div class="relative z-10 w-full h-full">
+
+                <!-- Main Copy (Left Top - Increased Jump Rate) -->
+                <div class="absolute top-24 left-5 w-[75%] z-20">
+                    <div
+                        class="inline-block bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1 mb-4">
+                        <span class="text-note font-bold text-brand-light6 tracking-wider">SEMINAR</span>
+                    </div>
+                    <!-- ジャンプ率を高めるため文字サイズを拡大 -->
+                    <h1 class="text-[42px] font-black leading-[1.1] mb-4 tracking-normal drop-shadow-xl text-left">
+                        AI時代で<br>
+                        10年後も<br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-brand-light4 to-white">勝ち続ける</span>
+                    </h1>
+                    <p class="text-xl font-bold mb-2">ビジネスパーソンに</p>
+                    <p class="text-note text-black-light8 mb-8 font-medium drop-shadow-sm text-left leading-relaxed">
+                        AIキャリア戦略講座<br>
+                        <span class="text-brand-light6 font-bold">[セミナー参加者限定特典あり]</span>
+                    </p>
+
+                    <!-- CTA Button -->
+                    <div class="relative group max-w-[240px]">
+                        <div
+                            class="absolute -inset-1 bg-gradient-brand-a rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse">
+                        </div>
+                        <a href="#reservation"
+                            class="relative block bg-white text-black-base font-bold py-4 px-4 rounded-lg text-center shadow-xl hover:bg-black-pale transition flex items-center justify-center">
+                            セミナーに予約する
+                            <i data-lucide="chevron-right" class="w-5 h-5 ml-1 text-brand-base"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Person Image (Right Bottom - Male Cutout) -->
+                <div
+                    class="absolute bottom-0 right-0 w-full h-[85%] z-10 flex items-end justify-end pointer-events-none">
+                    <!-- 透過PNG画像を使用 -->
+                    <img src="./img/kiuchi.png" alt="木内 翔大"
+                        class="w-full h-full object-contain object-bottom translate-x-10"
+                        style="filter: drop-shadow(0 0 20px rgba(165, 30, 109, 0.4));">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Crisis Section (The Problem) -->
+        <section class="py-20 px-5 bg-black-base text-white relative">
+            <div
+                class="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-black-base to-transparent pointer-events-none">
+            </div>
+
+            <div class="fade-in-up">
+                <h2 class="text-3xl font-black mb-8 text-center leading-snug tracking-tighter">
+                    いきなりですが…<br>
+                    このままだと<br>あなたの仕事は<br>
+                    <span class="text-brand-base bg-white/10 px-2 mt-2 inline-block">AIに奪われます</span>
+                </h2>
+
+                <p class="text-black-light6 text-body mb-10 leading-relaxed font-medium">
+                    AIによる労働構造の変化は、すでに現実のものとなっています。「あなたの代わりはAIでいい」その宣告は、ある日突然やってきます。
+                </p>
+
+                <div class="space-y-6">
+                    <div class="bg-black-light1 p-6 rounded-2xl border-l-8 border-brand-base relative overflow-hidden">
+                        <i data-lucide="alert-triangle"
+                            class="absolute top-4 right-4 w-12 h-12 text-black-base opacity-20"></i>
+                        <h3 class="font-bold text-brand-light6 mb-3 text-lg">
+                            解雇の現実
+                        </h3>
+                        <p class="text-note text-black-light8">スキルがあるはずのあなたが、AI導入で「不要なコスト」に変わる。</p>
+                    </div>
+                    <div class="bg-black-light1 p-6 rounded-sm border-l-8 border-brand-base relative overflow-hidden">
+                        <i data-lucide="bar-chart-2"
+                            class="absolute top-4 right-4 w-12 h-12 text-black-base opacity-20"></i>
+                        <h3 class="font-bold text-brand-light6 mb-3 text-lg">
+                            再就職の壁
+                        </h3>
+                        <p class="text-note text-black-light8">転職市場に溢れる失業者。これまでのキャリアが1円の価値も持たない恐怖。</p>
+                    </div>
+                    <div class="bg-black-light1 p-6 rounded-sm border-l-8 border-brand-base relative overflow-hidden">
+                        <i data-lucide="git-merge"
+                            class="absolute top-4 right-4 w-12 h-12 text-black-base opacity-20"></i>
+                        <h3 class="font-bold text-brand-light6 mb-3 text-lg">
+                            絶望的格差
+                        </h3>
+                        <p class="text-note text-black-light8">年収1,000万超の「AI活用者」と、職を奪われ続ける「非活用者」の二極化。</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <p class="text-lg font-bold mb-4">未来は二極化します。</p>
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Business Meeting"
+                        class="w-full h-48 object-cover rounded-sm opacity-60 mb-6 grayscale border border-black-light2">
+                    <p class="text-note text-black-light5">AIに淘汰される側で居続けるか、<br>AIを使いこなし市場価値を高めるか。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="py-20 px-5 bg-white rounded-none -mt-8 relative z-10 shadow-[0_-20px_40px_rgba(0,0,0,0.2)]">
+            <div class="fade-in-up text-center">
+                <p class="text-brand-base font-bold text-note mb-3 tracking-[0.2em]">THE SOLUTION</p>
+                <h2 class="text-3xl font-black mb-8 text-black-base leading-tight">
+                    答えはセミナーでお伝えする<br>
+                    <span
+                        class="bg-gradient-brand-b text-white px-4 py-2 rounded inline-block transform -skew-x-12 mt-3 shadow-lg text-4xl">「AI人材」</span><br>
+                    になること
+                </h2>
+                <p class="text-body text-black-base leading-relaxed mb-10 text-left font-medium">
+                    AI人材とは生成AIツールを使いこなし、人間の100倍以上の効率で仕事をこなす働き方を実践している人です。<br><br>
+                    一足先にAIスキルを味方につけた人々は、劇的なキャリアアップを実現しています。
+                </p>
+            </div>
+
+            <!-- Success Cases -->
+            <div class="space-y-8">
+                <!-- Case 1 -->
+                <div
+                    class="bg-brand-pale rounded-sm p-6 shadow-card relative overflow-hidden border border-brand-light8">
+                    <div class="flex items-center gap-5 z-10 relative">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80"
+                            alt="Woman"
+                            class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0">
+                        <div>
+                            <span
+                                class="bg-brand-base text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block">元保育士</span>
+                            <h3 class="font-bold text-black-base text-lg mb-1 leading-tight">月収120万の<br>AIクリエイター</h3>
+                            <p class="text-note text-black-light2 leading-tight mt-2">完全未経験から子育てと両立し飛躍。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="bg-sub-pale rounded-sm p-6 shadow-card relative overflow-hidden border border-sub-light7">
+                    <div class="flex items-center gap-5 z-10 relative">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80"
+                            alt="Man"
+                            class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0">
+                        <div>
+                            <span
+                                class="bg-sub-base text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block">元建設業</span>
+                            <h3 class="font-bold text-black-base text-lg mb-1 leading-tight">副業で一撃30万の<br>AIライター</h3>
+                            <p class="text-note text-black-light2 leading-tight mt-2">夜9時からの副業で一撃30万円を稼ぐ。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div class="bg-white border border-black-pale rounded-sm p-6 shadow-card relative overflow-hidden">
+                    <div class="flex items-center gap-5 z-10 relative">
+                        <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80"
+                            alt="Woman"
+                            class="w-20 h-20 rounded-full object-cover border-4 border-white shadow-md flex-shrink-0">
+                        <div>
+                            <span
+                                class="bg-black-light4 text-white text-[10px] font-bold px-2 py-1 rounded mb-2 inline-block">元時給900円</span>
+                            <h3 class="font-bold text-black-base text-lg mb-1 leading-tight">月収44万円の<br>AI人材へ</h3>
+                            <p class="text-note text-black-light2 leading-tight mt-2">AI学習わずか1ヶ月で時給パートから卒業。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center fade-in-up">
+                <p class="font-bold text-lg mb-4 text-black-base">その『成功のロードマップ』を<br>本セミナーで余すことなく公開。</p>
+            </div>
+        </section>
+
+        <!-- Seminar Contents -->
+        <section class="py-20 px-5 bg-black-pale">
+            <h2 class="text-2xl font-black text-center mb-10 text-black-base leading-snug">本セミナーでお伝えする<br><span
+                    class="text-brand-base text-3xl">AI時代の生存戦略</span></h2>
+
+            <div class="space-y-4">
+                <!-- List Item -->
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-8 border-brand-light2">
+                    <div class="text-brand-base font-black text-2xl mb-2 opacity-30 absolute right-8">01</div>
+                    <h3 class="font-bold text-lg mb-2 text-black-base">2026年 AI最新情報</h3>
+                    <p class="text-note text-black-light5">激動するAIの最前線と生存戦略。</p>
+                </div>
+                <div class="bg-white p-5 rounded-sm shadow-sm border-l-8 border-brand-light2">
+                    <div class="text-brand-base font-black text-2xl mb-2 opacity-30 absolute right-8">02</div>
+                    <h3 class="font-bold text-lg mb-2 text-black-base">AI人材が求められている理由</h3>
+                    <p class="text-note text-black-light5">圧倒的な「供給不足」と「需要過多」の真実。</p>
+                </div>
+                <div class="bg-white p-5 rounded-sm shadow-sm border-l-8 border-brand-light2">
+                    <div class="text-brand-base font-black text-2xl mb-2 opacity-30 absolute right-8">03</div>
+                    <h3 class="font-bold text-lg mb-2 text-black-base">AI人材の成功事例</h3>
+                    <p class="text-note text-black-light5">年収を数倍に跳ね上げたAI活用者の成功ルート。</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-8 border-brand-light2">
+                    <div class="text-brand-base font-black text-2xl mb-2 opacity-30 absolute right-8">04</div>
+                    <h3 class="font-bold text-lg mb-2 text-black-base">月収100万円を達成する方法</h3>
+                    <p class="text-note text-black-light5">市場から渇望される「高単価なプロ」になる全戦略。</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border-l-8 border-brand-light2">
+                    <div class="text-brand-base font-black text-2xl mb-2 opacity-30 absolute right-8">05</div>
+                    <h3 class="font-bold text-lg mb-2 text-black-base">AI人材デビューロードマップ</h3>
+                    <p class="text-note text-black-light5">未経験から駆け上がる最短ルートを完全網羅。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lecturer -->
+        <section class="py-20 px-5 bg-white">
+            <div class="text-center mb-8">
+                <span class="text-note font-bold text-black-light6 tracking-widest">INSTRUCTOR</span>
+                <h2 class="text-3xl font-black mt-2 text-black-base">セミナー講師</h2>
+            </div>
+
+            <div class="bg-black-pale rounded-sm overflow-hidden shadow-lg border border-black-pale">
+                <div class="h-72 overflow-hidden relative">
+                    <img src="./img/kiuchi.png" alt="木内 翔大" class="w-full h-full object-cover object-top">
+                    <div
+                        class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black-base/90 to-transparent p-6 pt-12">
+                        <p class="text-white font-black text-2xl mb-1">木内 翔大</p>
+                        <p class="text-brand-light4 text-note font-medium">SHIFT AI 代表</p>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span
+                            class="text-[10px] bg-white border border-black-light7 px-2 py-1 rounded text-black-light2 font-bold">GMO
+                            AI活用顧問</span>
+                        <span
+                            class="text-[10px] bg-white border border-black-light7 px-2 py-1 rounded text-black-light2 font-bold">生成AI活用普及協会
+                            協議員</span>
+                    </div>
+                    <p class="text-note text-black-light2 leading-relaxed mb-4">
+                        小5でエンジニア→SAMURAI ENGINEER創業→上場企業へ売却→『日本をAI先進国に』実現のため活動中。<br>
+                        エンジニア、起業、事業売却を経てAI業界へ。圧倒的な鮮度と実践性で、国内屈指の信頼を得るAI学習の場「SHIFT AI」を主宰。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Info -->
+        <section class="py-20 px-5 bg-gradient-brand-b text-white relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-10 rounded-full -mr-20 -mt-20"></div>
+            <div class="absolute bottom-0 left-0 w-40 h-40 bg-white opacity-10 rounded-full -ml-10 -mb-10"></div>
+
+            <div class="relative z-10 text-center">
+                <h2 class="font-black text-3xl mb-3">SHIFT AIとは？</h2>
+                <p class="text-body opacity-90 mb-10 font-medium">実践的なAIスキルが身につく<br>国内最大級の生成AI学習コミュニティ</p>
+
+                <div class="grid grid-cols-2 gap-4 mb-10">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20">
+                        <p class="text-note opacity-70 mb-1">利用者数</p>
+                        <p class="text-3xl font-black text-brand-light8">No.1<span
+                                class="text-xs text-white align-top">※</span></p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-sm p-5 border border-white/20">
+                        <p class="text-note opacity-70 mb-1">会員数</p>
+                        <p class="text-2xl font-black">25,000<span class="text-xs font-normal">名超</span></p>
+                    </div>
+                </div>
+
+                <div class="text-left bg-white/10 rounded-sm p-6 border border-white/10">
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-sub-light4 mr-4 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-body">日本最大級のAIコミュニティ</h4>
+                                <p class="text-note opacity-70 mt-1">25,000名以上の会員が参加する国内最大規模のプラットフォーム。</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-sub-light4 mr-4 flex-shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-body">最高峰の講師陣</h4>
+                                <p class="text-note opacity-70 mt-1">業界をリードするトップランナーたちが直接指導。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <p class="text-[10px] text-right mt-3 opacity-60">※GMOリサーチ＆AI株式会社調査（2025年2月）</p>
+            </div>
+        </section>
+
+        <!-- Bonus -->
+        <section class="py-20 px-5 bg-black-base text-white text-center">
+            <div class="border border-brand-base p-1 rounded-sm inline-block mb-8">
+                <div class="bg-gradient-brand-a px-6 py-2 rounded-sm text-note font-bold uppercase tracking-widest">
+                    Special Bonus</div>
+            </div>
+
+            <h2 class="text-2xl font-black mb-8 leading-tight">
+                【参加者限定特典】<br>
+                実践的AIスキル＆最新ツール<br>
+                <span class="text-brand-light5 text-3xl block mt-2">豪華12大特典セット</span>
+            </h2>
+
+            <div
+                class="bg-black-light1 rounded-sm p-6 border border-black-light2 relative overflow-hidden mb-10 shadow-glow">
+                <div
+                    class="absolute top-0 right-0 bg-sub-base text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg">
+                    期間限定</div>
+                <div class="grid grid-cols-2 gap-3 mb-6 opacity-50">
+                    <div class="h-20 bg-black-light2 rounded-lg"></div>
+                    <div class="h-20 bg-black-light2 rounded-lg"></div>
+                    <div class="h-20 bg-black-light2 rounded-lg"></div>
+                    <div class="h-20 bg-black-light2 rounded-lg"></div>
+                </div>
+                <p class="text-lg font-bold text-white mb-2">400種類以上の厳選プロンプト</p>
+                <p class="text-note text-black-light6 leading-relaxed">GPT-5.2、Nano
+                    Banana、AI×DESIGN、AI副業、AIツール選定など、本来プロの現場でしか使われない秘蔵データを公開。</p>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-20 px-5 bg-white text-center pb-36" id="reservation">
+            <p class="text-brand-base font-bold text-body mb-2">席が埋まってしまう前に</p>
+            <h2 class="text-3xl font-black text-black-base mb-10">今すぐ枠を確保！</h2>
+
+            <div class="bg-brand-pale p-5 rounded-sm mb-8 text-note text-left border border-brand-light8">
+                <p class="mb-2 text-brand-base"><strong>※現在、申し込みが殺到しております。</strong></p>
+                <p class="text-black-light2">少人数制の限定セミナーにつき、定員に達し次第、予告なく受付を終了させていただきます。</p>
+            </div>
+
+            <a href="#"
+                class="block w-full bg-gradient-brand-b text-white font-bold py-5 rounded-2xl text-xl shadow-xl hover:opacity-90 transition transform hover:scale-[1.02] shadow-brand-base/30 relative overflow-hidden group">
+                <span class="relative z-10">セミナーに予約する</span>
+                <span class="block text-note font-normal opacity-80 mt-1 relative z-10">（無料・所要時間 約60分）</span>
+                <div
+                    class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                </div>
+            </a>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black-base text-black-light6 text-note py-12 px-5 text-center border-t border-black-light1">
+            <div class="font-black text-2xl text-white mb-6 tracking-tighter">SHIFT AI</div>
+            <div class="flex justify-center gap-6 mb-8 text-[11px]">
+                <a href="#" class="hover:text-white transition-colors">運営会社</a>
+                <a href="#" class="hover:text-white transition-colors">利用規約</a>
+                <a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a>
+            </div>
+            <p class="mb-2 text-[10px]">特定商取引法に基づく表記</p>
+            <p class="text-[10px]">&copy; SHIFT AI. All Rights Reserved.</p>
+        </footer>
+
+        <!-- Fixed Bottom CTA (Mobile Only Logic) -->
+        <div
+            class="fixed bottom-0 w-full max-w-[480px] bg-white/95 backdrop-blur-md border-t border-black-pale p-4 z-40 shadow-[0_-5px_20px_rgba(0,0,0,0.1)]">
+            <a href="#reservation"
+                class="flex items-center justify-center w-full bg-gradient-brand-a text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-brand-base/50 transition">
+                無料でセミナーに参加する
+                <i data-lucide="arrow-right" class="w-5 h-5 ml-2 animate-bounce-x"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Animation Script -->
+    <script>
+        // Lucide Icons Init
+        lucide.createIcons();
+
+        // Scroll Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Run once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
